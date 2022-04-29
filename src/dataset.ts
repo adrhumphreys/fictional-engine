@@ -7,7 +7,13 @@ export type PriceBasedDiscount = {
 export type PriceBasedDiscounts = PriceBasedDiscount[];
 
 // State/location based
-export type StateCode = "UT" | "NV" | "TX" | "AL" | "CA";
+export enum StateCode {
+  Utah = "UT",
+  Nevada = "NV",
+  Texas = "TX",
+  Alabama = "AL",
+  California = "CA",
+}
 
 export type StateBasedDiscount = {
   stateCode: StateCode;
