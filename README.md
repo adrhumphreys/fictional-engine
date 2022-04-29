@@ -15,6 +15,14 @@ npm run dev
 
 There is one build step which is `npm run build` this will build the project which will but output into the `dist` directory
 
+### Testing
+
+Unit tests are written using [Vitest](https://vitest.dev/). To run them locally you can run:
+
+```sh
+npm run test
+```
+
 ## Data set
 
 We're using pre-configured data which is hardcoded in `./src/dataset.ts`. There could be a shift towards using a database with this in the future.
