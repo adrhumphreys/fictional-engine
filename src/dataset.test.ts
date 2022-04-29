@@ -2,6 +2,7 @@ import { describe, it, expect } from "vitest";
 import {
   getDiscountRateForPrice,
   getDiscountRateForState,
+  getStates,
   PriceBasedDiscount,
   StateBasedDiscount,
   StateCode,
@@ -73,5 +74,20 @@ describe("We can fetch state based discounts", () => {
   it("we haven't imported new untested states", () => {
     const rate = getDiscountRateForState("NY" as StateCode);
     expect(rate).toEqual(0);
+  });
+});
+
+describe("We can fetch states", () => {
+  it("should fetch 5 states", () => {
+    const states = getStates();
+    expect(states.length).toBe(5);
+  });
+
+  it("should have California in there", () => {
+    const states = getStates();
+    expect(states.find((s) => s.stateCode === StateCode.California)).toEqual({
+      name: "California",
+      stateCode: StateCode.California,
+    });
   });
 });

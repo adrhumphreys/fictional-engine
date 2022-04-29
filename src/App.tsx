@@ -1,8 +1,17 @@
+import { getStates, StateCode } from "./dataset";
 import { usePriceCalculator } from "./use-price-calculator";
 
 function App() {
-  const { price, itemAmount, setItemAmount, itemPrice, setItemPrice } =
-    usePriceCalculator();
+  const {
+    price,
+    itemAmount,
+    setItemAmount,
+    itemPrice,
+    setItemPrice,
+    stateCode,
+    setStateCode,
+  } = usePriceCalculator();
+  const states = getStates();
 
   return (
     <div className="App">
@@ -27,6 +36,22 @@ function App() {
         step="0.01"
         onChange={(e) => setItemPrice(parseFloat(e.target.value))}
       />
+      <br />
+      <label htmlFor="state">State</label>
+      <br />
+      <select
+        name="state"
+        id="state"
+        value={stateCode}
+        onChange={(e) => setStateCode(e.target.value as StateCode)}
+      >
+        <option>None</option>
+        {states.map(({ name, stateCode }) => (
+          <option key={stateCode} value={stateCode}>
+            {name}
+          </option>
+        ))}
+      </select>
     </div>
   );
 }

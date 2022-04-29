@@ -87,3 +87,11 @@ const StateDiscounts: StateBasedDiscounts = [
 
 export const getDiscountRateForState = (state: StateCode): number =>
   StateDiscounts.find((s) => s.stateCode === state)?.rate ?? 0;
+
+export const getStates = (): { name: string; stateCode: StateCode }[] => [
+  { name: "Alabama", stateCode: StateCode.Alabama },
+  { name: "California", stateCode: StateCode.California },
+  { name: "Nevada", stateCode: StateCode.Nevada },
+  { name: "Texas", stateCode: StateCode.Texas },
+  { name: "Utah", stateCode: StateCode.Utah },
+];
