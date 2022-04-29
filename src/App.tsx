@@ -1,5 +1,14 @@
+import { usePriceCalculator } from "./use-price-calculator";
+
 function App() {
-  return <div className="App">Hello world</div>;
+  const { price } = usePriceCalculator();
+  return (
+    <div className="App">
+      <p>
+        Your price is: <b>{price}</b>
+      </p>
+    </div>
+  );
 }
 
 export default App;
